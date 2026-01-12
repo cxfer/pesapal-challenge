@@ -59,42 +59,42 @@ The **Pesapal RDBMS** is a sophisticated in-memory relational database managemen
 <div align="center">
 
 ### Terminal Interface
-<img src="assets/mixup/terminal-interface.png" alt="Terminal Interface" width="800"/>
+<img src="assets/mixup/2.png" alt="Terminal Interface" width="800"/>
 
 *Professional Linux-style command interface with real-time feedback*
 
 ### Table View
-<img src="assets/mixup/table-view.png" alt="Table View" width="800"/>
+<img src="assets/mixup/3.png" alt="Table View" width="800"/>
 
 *Interactive data visualization with dynamic table selection*
 
 ### Command History
-<img src="assets/mixup/command-history.png" alt="Command History" width="800"/>
+<img src="assets/mixup/4.png" alt="Command History" width="800"/>
 
 *Track all executed commands with persistent history*
 
 ### Help Documentation
-<img src="assets/mixup/help-screen.png" alt="Help Screen" width="800"/>
+<img src="assets/mixup/5.png" alt="Help Screen" width="800"/>
 
 *Comprehensive command reference and usage guide*
 
 ### Data Persistence
-<img src="assets/mixup/persistence-demo.png" alt="Data Persistence" width="800"/>
+<img src="assets/mixup/6.png" alt="Data Persistence" width="800"/>
 
 *Data remains intact after page refresh and browser restart*
 
 ### SQL Query Execution
-<img src="assets/mixup/query-execution.png" alt="SQL Query Execution" width="800"/>
+<img src="assets/mixup/7.png" alt="SQL Query Execution" width="800"/>
 
 *Real-time SQL command processing and results display*
 
 ### Table Creation
-<img src="assets/mixup/table-creation.png" alt="Table Creation" width="800"/>
+<img src="assets/mixup/8.png" alt="Table Creation" width="800"/>
 
 *Dynamic table creation with immediate availability in Tables tab*
 
 ### Join Operations
-<img src="assets/mixup/join-operation.png" alt="Join Operations" width="800"/>
+<img src="assets/mixup/1.png" alt="Join Operations" width="800"/>
 
 *Advanced JOIN operations between multiple tables*
 
@@ -177,7 +177,7 @@ flutter config --enable-web
 ### Installation
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/cxfer/pesapal-challenge.git
 
 # Navigate to project directory
 cd pesapal_rdbms
