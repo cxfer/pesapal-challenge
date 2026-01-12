@@ -1,0 +1,44 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub/
+build/
+
+# IntelliJ
+idea/
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Packages
+*.tar.gz
+
+# IDE
+*.swp
+*.swo
+*~
+
+# Testing
+.dart_tool/test/dds/
+.dart_tool/test_listener/
+
+# Flutter web build
+build/web/

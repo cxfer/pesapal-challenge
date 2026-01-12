@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesapal RDBMS - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tech-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .command-card {
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .screenshot-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin: 1rem 0;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            border: none;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1rem;
+            border-radius: 0 5px 5px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .architecture-diagram {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .performance-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-database me-2"></i>
+                Pesapal RDBMS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#overview"><i class="fas fa-home me-1"></i> Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features"><i class="fas fa-star me-1"></i> Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technology"><i class="fas fa-cogs me-1"></i> Technology</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#commands"><i class="fas fa-terminal me-1"></i> Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#architecture"><i class="fas fa-project-diagram me-1"></i> Architecture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#screenshots"><i class="fas fa-camera me-1"></i> Screenshots</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="fas fa-database me-3"></i>Pesapal RDBMS Documentation
+            </h1>
+            <p class="lead mb-4">
+                A Professional In-Memory RDBMS with Terminal Interface Built with Dart & Flutter Web
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-primary">Dart</span>
+                        <span class="badge bg-success">Flutter Web</span>
+                        <span class="badge bg-info">RDBMS</span>
+                        <span class="badge bg-warning text-dark">SQL</span>
+                        <span class="badge bg-danger">Terminal UI</span>
+                        <span class="badge bg-secondary">Pesapal Challenge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Project Overview</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Executive Summary</h3>
+                            <p class="lead">
+                                The Pesapal RDBMS is a sophisticated in-memory relational database management system built with modern Dart and Flutter Web technologies. This project demonstrates advanced database engineering capabilities while meeting all requirements of the Pesapal Junior Dev Challenge '26.
+                            </p>
+                            <div class="row text-center mt-4">
+                                <div class="col-md-3 mb-4">
+                                    <div class="bg-light p-3 rounded">
+                                        <i class="fas fa-database fa-2x text-primary mb-2"></i>
+                                        <h4>20+ Commands</h4>
+                                        <p class="text-muted">SQL & System Commands</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="bg-light p-3 rounded">
+                                        <i class="fas fa-bolt fa-2x text-success mb-2"></i>
+                                        <h4>O(1) Lookup</h4>
+                                        <p class="text-muted">Primary Key Indexing</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="bg-light p-3 rounded">
+                                        <i class="fas fa-sync fa-2x text-info mb-2"></i>
+                                        <h4>Real-time</h4>
+                                        <p class="text-muted">Instant Feedback</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="bg-light p-3 rounded">
+                                        <i class="fas fa-save fa-2x text-warning mb-2"></i>
+                                        <h4>Persistent</h4>
+                                        <p class="text-muted">Data Storage</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-primary mb-3">
+                                <i class="fas fa-database fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">CRUD Operations</h4>
+                            <p class="card-text">
+                                Full Create, Read, Update, Delete functionality with comprehensive SQL command support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-project-diagram fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">JOIN Operations</h4>
+                            <p class="card-text">
+                                Advanced inner join functionality between multiple tables with complex relationships.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-info mb-3">
+                                <i class="fas fa-bolt fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Performance</h4>
+                            <p class="card-text">
+                                Optimized O(1) primary key indexing for maximum query performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-terminal fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Terminal UI</h4>
+                            <p class="card-text">
+                                Professional Linux-style terminal interface with real-time command processing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-danger mb-3">
+                                <i class="fas fa-save fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Data Persistence</h4>
+                            <p class="card-text">
+                                Automatic saving and loading of data between sessions using local storage.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card">
+                        <div class="card-body p-4">
+                            <div class="text-secondary mb-3">
+                                <i class="fas fa-shield-alt fa-3x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Data Integrity</h4>
+                            <p class="card-text">
+                                Comprehensive constraint validation and type checking for data integrity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Technology Stack</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-card text-center">
+                        <i class="fab fa-dart fa-4x text-primary mb-3"></i>
+                        <h5>Dart</h5>
+                        <p class="text-muted">Primary programming language</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-card text-center">
+                        <i class="fa-brands fa-flutter fa-4x text-success mb-3"></i>
+                        <h5>Flutter Web</h5>
+                        <p class="text-muted">Cross-platform UI framework</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-card text-center">
+                        <i class="fas fa-cogs fa-4x text-info mb-3"></i>
+                        <h5>Material Design</h5>
+                        <p class="text-muted">Professional UI components</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-card text-center">
+                        <i class="fas fa-database fa-4x text-warning mb-3"></i>
+                        <h5>Shared Preferences</h5>
+                        <p class="text-muted">Local data persistence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Command Reference</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-database me-2"></i>Database Commands</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-card p-3 mb-2">
+                                <code>CREATE TABLE name (col type constraints)</code>
+                            </div>
+                            <p class="text-muted">Create new table with specified columns and constraints</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>DROP TABLE name</code>
+                            </div>
+                            <p class="text-muted">Delete table and all its data</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>SHOW TABLES</code>
+                            </div>
+                            <p class="text-muted">List all tables in the database</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>DESCRIBE table_name</code>
+                            </div>
+                            <p class="text-muted">Show table structure with column details</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Data Manipulation</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-card p-3 mb-2">
+                                <code>INSERT INTO table (cols) VALUES (values)</code>
+                            </div>
+                            <p class="text-muted">Add new records to a table</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>SELECT * FROM table</code>
+                            </div>
+                            <p class="text-muted">Retrieve all records from a table</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>UPDATE table SET col=val WHERE condition</code>
+                            </div>
+                            <p class="text-muted">Modify existing records</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>DELETE FROM table WHERE condition</code>
+                            </div>
+                            <p class="text-muted">Remove records that match condition</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-info text-white">
+                            <h4 class="mb-0"><i class="fas fa-project-diagram me-2"></i>Join Operations</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-card p-3 mb-2">
+                                <code>JOIN table1 WITH table2 ON t1.col = t2.col</code>
+                            </div>
+                            <p class="text-muted">Perform inner join between two tables</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-warning text-dark">
+                            <h4 class="mb-0"><i class="fas fa-terminal me-2"></i>System Commands</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="command-card p-3 mb-2">
+                                <code>clear / cls</code>
+                            </div>
+                            <p class="text-muted">Clear the terminal screen</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>help / man / ?</code>
+                            </div>
+                            <p class="text-muted">Show command reference</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>history / hist</code>
+                            </div>
+                            <p class="text-muted">Show command history</p>
+                            
+                            <div class="command-card p-3 mb-2">
+                                <code>exit / quit / q</code>
+                            </div>
+                            <p class="text-muted">Exit the terminal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">System Architecture</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="architecture-diagram">
+                        <h4 class="text-center mb-4">Component Architecture</h4>
+                        <div class="text-center">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="bg-primary text-white p-3 rounded">
+                                        <i class="fas fa-desktop fa-2x mb-2"></i>
+                                        <h5>UI Layer</h5>
+                                        <p class="mb-0">Flutter Web Interface</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="bg-success text-white p-3 rounded">
+                                        <i class="fas fa-cogs fa-2x mb-2"></i>
+                                        <h5>Business Logic</h5>
+                                        <p class="mb-0">SQL Parser & Processing</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="bg-info text-white p-3 rounded">
+                                        <i class="fas fa-database fa-2x mb-2"></i>
+                                        <h5>Data Layer</h5>
+                                        <p class="mb-0">DB Engine & Storage</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="my-4">
+                                <i class="fas fa-arrow-down fa-2x text-muted"></i>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5>Core Components</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i> DB Engine</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> SQL Parser</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Table Management</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Column Definitions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5>UI Components</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i> Terminal Interface</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Data Viewer</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Help Screen</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Navigation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="performance-table">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Operation</th>
+                                        <th>Time Complexity</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><i class="fas fa-key text-primary me-2"></i>Primary Key Lookup</td>
+                                        <td>O(1) average</td>
+                                        <td>Hash map indexing for fast access</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-search text-info me-2"></i>Table Scan</td>
+                                        <td>O(n)</td>
+                                        <td>Unindexed queries through all records</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-link text-success me-2"></i>JOIN Operation</td>
+                                        <td>O(n*m)</td>
+                                        <td>Nested loop join between tables</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-plus text-warning me-2"></i>Insert Record</td>
+                                        <td>O(1)</td>
+                                        <td>Amortized constant time</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-edit text-danger me-2"></i>Update Record</td>
+                                        <td>O(1)</td>
+                                        <td>Direct access via index</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-trash text-secondary me-2"></i>Delete Record</td>
+                                        <td>O(n)</td>
+                                        <td>Requires re-indexing</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Screenshots</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/1.png" alt="Terminal Interface" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">Terminal Interface</h6>
+                            <small class="text-muted">Professional Linux-style command interface</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/2.png" alt="Table View" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">Table View</h6>
+                            <small class="text-muted">Interactive data visualization</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/3.png" alt="Command History" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">Command History</h6>
+                            <small class="text-muted">Track all executed commands</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/4.png" alt="Help Screen" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">Help Documentation</h6>
+                            <small class="text-muted">Comprehensive command reference</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/5.png" alt="Data Persistence" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">Data Persistence</h6>
+                            <small class="text-muted">Data remains after page refresh</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="screenshot-container">
+                        <img src="../assets/mixup/6.png" alt="SQL Query Execution" class="img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0">SQL Query Execution</h6>
+                            <small class="text-muted">Real-time command processing</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Getting Started</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h4 class="mb-4"><i class="fas fa-rocket me-2"></i>Installation</h4>
+                            <div class="code-block mb-4">
+                                # Prerequisites<br>
+                                flutter --version<br><br>
+                                
+                                # Clone repository<br>
+                                git clone &lt;repository-url&gt;<br><br>
+                                
+                                # Navigate to project<br>
+                                cd pesapal_rdbms<br><br>
+                                
+                                # Install dependencies<br>
+                                flutter pub get<br><br>
+                                
+                                # Run the application<br>
+                                flutter run -d chrome
+                            </div>
+                            
+                            <h4 class="mb-4"><i class="fas fa-play me-2"></i>Quick Start Examples</h4>
+                            <div class="code-block">
+                                # Create a sample table<br>
+                                CREATE TABLE products (<br>
+                                &nbsp;&nbsp;id int primary key,<br>
+                                &nbsp;&nbsp;name string,<br>
+                                &nbsp;&nbsp;price double,<br>
+                                &nbsp;&nbsp;in_stock boolean<br>
+                                );<br><br>
+                                
+                                # Insert sample data<br>
+                                INSERT INTO products (id, name, price, in_stock) <br>
+                                VALUES (1, 'Laptop', 999.99, true);<br><br>
+                                
+                                # Query data<br>
+                                SELECT * FROM products;<br><br>
+                                
+                                # Update data<br>
+                                UPDATE products SET price = 899.99 WHERE id = 1;<br><br>
+                                
+                                # Join with another table<br>
+                                CREATE TABLE inventory (product_id int, quantity int);<br>
+                                INSERT INTO inventory VALUES (1, 50);<br>
+                                JOIN products WITH inventory ON products.id = inventory.product_id;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="mb-4">Pesapal RDBMS - Junior Dev Challenge '26</h3>
+                    <p class="lead mb-4">
+                        A professional in-memory RDBMS built with Dart & Flutter Web
+                    </p>
+                    <div class="social-links mb-4">
+                        <a href="#" class="btn btn-outline-light me-2">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-outline-light me-2">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="btn btn-outline-light">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                    </div>
+                    <p class="text-light-50">
+                        © 2026 Pesapal RDBMS. Built for the Pesapal Junior Dev Challenge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
