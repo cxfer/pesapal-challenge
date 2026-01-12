@@ -288,7 +288,7 @@ Additionally, it exceeds expectations with professional UI/UX, persistent storag
 
 <div align="center">
 
-## 🏆 Made with ❤️ for the Pesapal Junior Dev Challenge '26
+## 🏆 Made with ❤️ 
 
 **Ready to revolutionize database management with cutting-edge technology.**
 
@@ -296,8 +296,7 @@ Additionally, it exceeds expectations with professional UI/UX, persistent storag
 [![GitHub](https://img.shields.io/badge/Follow-GitHub-black?logo=github&style=for-the-badge)](#) 
 [![Flutter](https://img.shields.io/badge/Built%20With-Flutter-blue?logo=flutter&style=for-the-badge)](https://flutter.dev)
 
-### 🚀 Deployed & Ready to Impress!
 
-### Yours Trully Cxfer!!
+### 🚀🚀 Yours Trully Cxfer!! 🚀🚀 ###
 
 </div>
