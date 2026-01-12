@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Pesapal RDBMS](assets/mixup/app-preview.png)](#features)
+[![Pesapal RDBMS](assets/mixup/1.png)](#features)
 
 **A Professional In-Memory RDBMS with Terminal Interface**  
 *Built with Dart & Flutter Web for the Pesapal Junior Dev Challenge '26*
@@ -18,7 +18,7 @@
 
 ## 🚀 Executive Summary
 
-The **Pesapal RDBMS** is a sophisticated in-memory relational database management system built with modern Dart and Flutter Web technologies. This project demonstrates advanced database engineering capabilities while meeting all requirements of the Pesapal Junior Dev Challenge '26, showcasing professional-grade implementation with enterprise-level features.
+The **Pesapal RDBMS** is a simple in-memory relational database management system built with modern Dart and Flutter Web technologies. This project demonstrates advanced database engineering capabilities while meeting all requirements of the Pesapal Junior Dev Challenge '26, showcasing professional-grade implementation with enterprise-level features.
 
 ### 📊 Quick Stats
 - **Languages**: Dart, HTML/CSS (via Flutter Web)
